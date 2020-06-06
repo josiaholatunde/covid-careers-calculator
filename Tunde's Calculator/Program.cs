@@ -34,12 +34,15 @@ namespace Tunde_s_Calculator
                     Console.Write("This is not valid input. Please enter an integer value: ");
                     numInput2 = Console.ReadLine();
                 }
+                Console.ForegroundColor = ConsoleColor.Green;
 
                 Console.WriteLine("Choose an operator from the following list:");
                 Console.WriteLine("\ta - Add");
                 Console.WriteLine("\ts - Subtract");
                 Console.WriteLine("\tm - Multiply");
                 Console.WriteLine("\td - Divide");
+
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("Your option? ");
 
                 string op = Console.ReadLine();
@@ -49,13 +52,17 @@ namespace Tunde_s_Calculator
                     result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
                     if (double.IsNaN(result))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("This operation will result in a mathematical error.\n");
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     else Console.WriteLine("Your result: {0:0.##}\n", result);
                 }
                 catch (Exception e)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
 
                 Console.WriteLine("------------------------\n");
